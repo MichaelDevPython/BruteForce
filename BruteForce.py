@@ -38,7 +38,7 @@ def implementacja():
     print(f'Posortowana tablica: {elementy_zbioru}')
     listIndex(elementy_zbioru)
 
-
+#MASZALAH
 implementacja()
 
 #https://www.programiz.com/dsa/binary-search
