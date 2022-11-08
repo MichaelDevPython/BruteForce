@@ -16,10 +16,29 @@
 
 
 def exhaustiveSearch(elementy_zbioru):
-    element = int(input("Ktory element chcesz szukac?"))
-    pos = elementy_zbioru.index(element) 
-    print("Indeks twojego elementu to",pos)
+    element = int(input("Ktory element chcesz szukac? "))
+    if element in elementy_zbioru:
+        return print(f'Znaleziono element {element} pod indeksem {elementy_zbioru.index(element)}')
+    else:
+        return print("Brak wskazanego elementu")
 
 
-createList()
-exhaustiveSearch(elementy_zbioru)
+def listIndex(elementy_zbioru):
+    index = 0
+    for i in elementy_zbioru:
+        print(f'[Index:{index} Wartosc:{i} ]') # Iteracja wypisująca wartość wraz z indexem tablicy
+        index += 1
+
+
+def implementacja():
+    elementy_zbioru = createList()
+    listIndex(elementy_zbioru)
+    exhaustiveSearch(elementy_zbioru)
+    elementy_zbioru.sort()
+    print(f'Posortowana tablica: {elementy_zbioru}')
+    listIndex(elementy_zbioru)
+
+
+implementacja()
+
+#https://www.programiz.com/dsa/binary-search
