@@ -1,4 +1,5 @@
-﻿def createList():
+
+def createList():
 
     liczba_elementow = 21 # Ogranicznik, który blokuje wprowadzenie więcej niż 20 elementów
     while not  (liczba_elementow <= 20 and liczba_elementow >= 1): # Ograniczenie tablicy od 1 do 20 elementów
@@ -17,7 +18,6 @@
 
 def exhaustiveSearch(elementy_zbioru):
     element = int(input("Ktory element chcesz szukac? "))
-    licznik_przejsc = 0
     for i in range(len(elementy_zbioru)):
         if elementy_zbioru[i] == element:
             return print(f'Znaleziono element {element} pod indeksem {elementy_zbioru.index(element)}')
@@ -31,12 +31,12 @@ def binarySearch(elementy_zbioru):
         mid = (high + low) // 2 # Znalezienie środkowego elementu
         print(f'Indeks z lewej strony {low}, indeks z prawej strony {high}, środek {mid}')
         if elementy_zbioru[mid] < element:
-            low = mid + 1
+            low = mid + 1 # przesuwanie wskaźnika z lewej strony
         elif elementy_zbioru[mid] > element:
-            high = mid -1
+            high = mid -1 # przesuwanie wskaźnika z prawej strony
         else: 
             return mid
-    return -1
+    return True
 
 
 def listIndex(elementy_zbioru):
@@ -47,16 +47,16 @@ def listIndex(elementy_zbioru):
 
 
 def implementacja():
-    elementy_zbioru = createList()
+    elementy_zbioru = createList() 
     listIndex(elementy_zbioru)
     exhaustiveSearch(elementy_zbioru)
     elementy_zbioru.sort()
     print(f'Posortowana tablica: {elementy_zbioru}')
     listIndex(elementy_zbioru)
     wynik_binarySearch = binarySearch(elementy_zbioru)
-    if wynik_binarySearch != -1:
+    if wynik_binarySearch != True:
         print(f'Element znajduje się na indeksie {wynik_binarySearch}')
     else:
         print(f'Brak wskazanego elementu')
-implementacja()
 
+implementacja()
